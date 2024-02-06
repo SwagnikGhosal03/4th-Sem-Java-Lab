@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 abstract class Twodimensions{
     double width;
     double height;
@@ -24,10 +26,16 @@ class Threedimensions extends Twodimensions{
 }
 public class Dimensions{
     public static void main(String[] args) {
-        Twodimensions sheet= new Twodimensions(10,20) {
-        };
-        Threedimensions box = new Threedimensions(20, 40,60);
-        System.out.println("cost of the sheet:"+sheet.calculatecost());
-        System.out.println("cost of box:"+box.calculatecost());
-    }
+      Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the height, width for the sheet:");
+        double height = sc.nextDouble();
+        double width = sc.nextDouble();
+        Twodimensions sheet= new Twodimensions(height, width){};
+        System.out.println("depth for the box:");
+        double depth = sc.nextDouble();
+        Threedimensions box = new Threedimensions(height, width, depth);
+        System.out.println("Cost of the sheet: "+sheet.calculatecost());
+        System.out.println("Cost of box: "+box.calculatecost());
+        sc.close();
+}
 }
